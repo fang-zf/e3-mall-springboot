@@ -35,7 +35,7 @@
 		<lombok.version>1.18.4</lombok.version>
 		<commons.lang3.version>3.3.2</commons.lang3.version>
 		<commons-net.version>3.3</commons-net.version>
-		<httpclient.version>4.3.5</httpclient.version>
+		<httpclient.version>4.3.6</httpclient.version>
 		<jedis.version>2.7.2</jedis.version>
 		<jasper.version>9.0.27</jasper.version>
 		<fastdfs_client.version>1.25</fastdfs_client.version>
