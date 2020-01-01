@@ -1,0 +1,18 @@
+server: 
+  port: 8082
+
+spring:
+   mvc: 
+      view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp
+
+dubbo:
+  application:
+    name: e3-portal-web #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+  registry: 
+    protocol: zookeeper #指定注册中心的位置
+    address: 192.168.0.106:2181
+
+#轮播图id
+content_lunbo_id: 89
