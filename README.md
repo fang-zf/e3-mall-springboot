@@ -1,0 +1,4 @@
+# e3-mall-springboot
+宜立方商城spring升级成springboot
+
+项目初始化提交到git时已经把FastDFS和redis集成好了
