@@ -41,6 +41,8 @@
 		<fastdfs_client.version>1.25</fastdfs_client.version>
 		<fastdfs-client.version>1.26.2</fastdfs-client.version>
 		<alibaba.fastjson>1.2.49</alibaba.fastjson>
+		<solrj.version>4.10.3</solrj.version>
+		<activemq.version>5.11.2</activemq.version>
 		<!-- <joda-time.version>2.5</joda-time.version> -->
 	</properties>
 
@@ -196,6 +198,17 @@
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>${alibaba.fastjson}</version>
+			</dependency>
+			<!-- solr客户端 -->
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-solrj</artifactId>
+				<version>${solrj.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.activemq</groupId>
+				<artifactId>activemq-all</artifactId>
+				<version>${activemq.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

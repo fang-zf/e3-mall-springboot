@@ -6,7 +6,6 @@
 		<artifactId>e3-content-springboot</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.e3mall.springboot.content</groupId>
 	<artifactId>e3-content-interface-springboot</artifactId>
 
 	<dependencies>

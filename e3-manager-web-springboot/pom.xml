@@ -22,6 +22,13 @@
 			<artifactId>e3-content-interface-springboot</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- search interface -->
+		<dependency>
+			<groupId>com.e3mall.springboot</groupId>
+			<artifactId>e3-search-interface-springboot</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- springboot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

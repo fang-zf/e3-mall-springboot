@@ -12,10 +12,11 @@
 	<dependencies>
 		<!-- content 接口依赖 -->
 		<dependency>
-			<groupId>com.e3mall.springboot.content</groupId>
+			<groupId>com.e3mall.springboot</groupId>
 			<artifactId>e3-content-interface-springboot</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- springboot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

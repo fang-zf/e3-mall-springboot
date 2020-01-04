@@ -15,7 +15,7 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.e3mall.springboot.content</groupId>
+			<groupId>com.e3mall.springboot</groupId>
 			<artifactId>e3-content-interface-springboot</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

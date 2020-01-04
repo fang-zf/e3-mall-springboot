@@ -19,7 +19,8 @@ import com.e3mall.springboot.service.ItemCatService;
 @Controller
 public class ItemCatController {
 
-	@Reference
+	//超时时间30s 重试3次
+	@Reference(timeout=1000*30,retries=3)
 	private ItemCatService itemCatService;
 	
 	@RequestMapping("/item/cat/list")

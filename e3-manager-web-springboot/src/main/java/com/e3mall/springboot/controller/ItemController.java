@@ -15,7 +15,8 @@ import com.e3mall.springboot.utils.E3Result;
 @Controller
 public class ItemController {
 	
-	@Reference
+	//超时时间30s 重试3次
+	@Reference(timeout=1000*30,retries=3)
 	private ItemService itemService;
 	
 	@RequestMapping("/item/{itemId}")

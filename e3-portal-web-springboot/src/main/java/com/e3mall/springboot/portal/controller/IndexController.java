@@ -24,7 +24,7 @@ public class IndexController {
 	@Value("${content_lunbo_id}")
 	private Long content_lunbo_id;
 	
-	@Reference
+	@Reference(timeout=1000*30,retries=3)
 	private ContentService contentService;
 	
 	/**
