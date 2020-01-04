@@ -1,0 +1,20 @@
+server:
+  port: 8085
+  #servlet: 
+    #context-path: /myblog
+
+spring:
+   mvc: 
+      view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp
+
+dubbo: 
+  application:
+    name: e3-search-web #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+  registry: 
+    protocol: zookeeper #指定注册中心的位置
+    address: 192.168.0.106:2181
+    
+#搜索商品每页显示数目
+SEARCH_RESULT_ROWS: 60

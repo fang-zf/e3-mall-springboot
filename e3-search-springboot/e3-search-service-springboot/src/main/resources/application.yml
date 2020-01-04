@@ -1,0 +1,30 @@
+server:
+  port: 8084
+  #servlet: 
+    #context-path: /myblog
+    
+spring: 
+  datasource: 
+    url: jdbc:mysql://localhost:3306/e3-mall?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+    
+#mybatis
+mybatis: 
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.e3mall.springboot.pojo #扫描实体类
+  configuration: 
+    mapUnderscoreToCamelCase: true #开启驼峰命名
+    aggressiveLazyLoading: false #延迟加载
+    lazyLoadingEnabled: true
+    
+dubbo:
+  application: 
+    name: e3-search #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+  registry: 
+    protocol: zookeeper #指定注册中心的位置
+    address: 192.168.0.106:2181
+  protocol: 
+    name: dubbo #指定通信规则（通信协议？通信端口）
+    port: 20882
