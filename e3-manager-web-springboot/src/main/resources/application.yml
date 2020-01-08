@@ -4,10 +4,22 @@ server:
     #context-path: /myblog
 
 spring:
-   mvc: 
-      view:
-        prefix: /WEB-INF/jsp/
-        suffix: .jsp
+  mvc: 
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  #activemq  
+  activemq: 
+    broker-url: tcp://192.168.0.129:61616 #activeMQ地址
+    user: admin
+    password: admin
+    in-memory: false #是否启用内存模式（也就是不安装MQ，项目启动时同时也启动一个MQ实例）
+    packages:
+      trust-all: true  #信任所有的包 如果直接发送对象消息，那么必须设置spring.activemq.packages.trust-all为true；另外如果你想开始消息持久化就必须spring.activemq.in-memory=false选项。
+    pool: 
+      enabled: false #关闭线程池
+  jms: 
+    pub-sub-domain: false #如果是点对点（queue），那么此处默认应该是false，如果发布订阅，那么一定设置为true
 
 file: 
   uploadUrl: http://192.168.0.144:88/blog #图片上传地址
@@ -17,8 +29,15 @@ dubbo:
     name: e3-manager-web #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
   registry: 
     protocol: zookeeper #指定注册中心的位置
-    address: 192.168.0.106:2181
-
+    address: 192.168.0.129:2181
+  consumer: 
+    # 关闭所有服务的启动时检查
+    check: false
+    # 超时时间
+    timeout: 5000
+    # 重连次数
+    retries: 3
+    
 # ===================================================================
 # 分布式文件系统FDFS配置
 # ===================================================================

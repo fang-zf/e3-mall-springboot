@@ -9,6 +9,18 @@ spring:
     username: root
     password: mysql
     driver-class-name: com.mysql.jdbc.Driver
+  #activemq  
+  activemq: 
+    broker-url: tcp://192.168.0.105:61616 #activeMQ地址
+    user: admin
+    password: admin
+    in-memory: false #是否启用内存模式（也就是不安装MQ，项目启动时同时也启动一个MQ实例）
+    packages:
+      trust-all: true  #信任所有的包 如果直接发送对象消息，那么必须设置spring.activemq.packages.trust-all为true；另外如果你想开始消息持久化就必须spring.activemq.in-memory=false选项。
+  #pool: 
+  #  enabled: false #关闭线程池 默认关闭
+  jms: 
+    pub-sub-domain: true #开启支持发布订阅模型，activemq默认只支持点对点
     
 #mybatis
 mybatis: 
@@ -24,7 +36,7 @@ dubbo:
     name: e3-search #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
   registry: 
     protocol: zookeeper #指定注册中心的位置
-    address: 192.168.0.106:2181
+    address: 192.168.0.105:2181
   protocol: 
     name: dubbo #指定通信规则（通信协议？通信端口）
     port: 20882

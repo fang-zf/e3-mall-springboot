@@ -42,7 +42,6 @@
 		<fastdfs-client.version>1.26.2</fastdfs-client.version>
 		<alibaba.fastjson>1.2.49</alibaba.fastjson>
 		<solrj.version>4.10.3</solrj.version>
-		<activemq.version>5.11.2</activemq.version>
 		<!-- <joda-time.version>2.5</joda-time.version> -->
 	</properties>
 
@@ -205,10 +204,11 @@
 				<artifactId>solr-solrj</artifactId>
 				<version>${solrj.version}</version>
 			</dependency>
+			<!-- activemq -->
 			<dependency>
-				<groupId>org.apache.activemq</groupId>
-				<artifactId>activemq-all</artifactId>
-				<version>${activemq.version}</version>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-activemq</artifactId>
+			    <version>${springboot.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -4,9 +4,10 @@ package com.e3mall.springboot.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.e3mall.springboot.mapper.TbItemDescMapper;
@@ -23,13 +24,15 @@ import com.github.pagehelper.PageInfo;
 
 @Service //暴露服务
 @Component
-@Transactional
+//@Transactional
 public class ItemServiceImpl implements ItemService{
 
 	@Autowired
 	private TbItemMapper itemMapper;
 	@Autowired
 	private TbItemDescMapper itemDescMapper;
+	@Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
 	
 	@Override
 	public TbItem getItemById(long itemId) {
@@ -52,6 +55,7 @@ public class ItemServiceImpl implements ItemService{
 		//取总记录数
 		long total = pageInfo.getTotal();
 		result.setTotal(total);
+		
 		return result;
 	}
 	
@@ -76,6 +80,12 @@ public class ItemServiceImpl implements ItemService{
 		itemDesc.setUpdated(new Date());
 		//向商品描述表插入数据
 		itemDescMapper.insert(itemDesc);
+		
+		//发送商品添加消息  
+		//在 com.e3mall.springboot.search.message中消费消息 ，添加到sorlr库中用于查询
+		ActiveMQQueue destination = new ActiveMQQueue("addItem");
+        jmsMessagingTemplate.convertAndSend(destination, item.getId());
+		
 		//返回成功
 		return E3Result.ok();
 	}

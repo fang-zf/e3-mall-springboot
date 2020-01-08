@@ -10,7 +10,7 @@ spring:
     password: mysql
     driver-class-name: com.mysql.jdbc.Driver
   redis: 
-    host: 192.168.0.106
+    host: 192.168.0.129
     port: 6379
     timeout: 5000 #连接超时时间（毫秒）
     jedis: 
@@ -34,7 +34,7 @@ dubbo:
     name: e3-content #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
   registry: 
     protocol: zookeeper #指定注册中心的位置
-    address: 192.168.0.106:2181
+    address: 192.168.0.129:2181
   protocol: 
     name: dubbo #指定通信规则（通信协议？通信端口）
     port: 20881

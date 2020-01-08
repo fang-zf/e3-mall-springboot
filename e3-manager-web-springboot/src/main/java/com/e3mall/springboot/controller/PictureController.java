@@ -14,15 +14,12 @@ import com.e3mall.springboot.config.FileUploadProperteis;
 import com.e3mall.springboot.utils.FastDFSClient;
 import com.e3mall.springboot.utils.JsonUtils;
 
-import lombok.extern.slf4j.Slf4j;
-
 
 /**
  * 图片上传处理Controller
  * @author fangzf
  * @date:  2019年12月29日
  */
-@Slf4j
 @Controller
 public class PictureController {
 	
@@ -37,8 +34,9 @@ public class PictureController {
 		try {
             //返回绝对路径
             String url = fileUploadProperteis.getUploadUrl()+"/"+fastDFSClient.uploadFile(uploadFile);
-			log.info("上传图片路径：{},上传大小：{}",fileUploadProperteis.getUploadUrl() + url,uploadFile.getSize());
-			//封装到map中返回
+			//	log.info("上传图片路径：{},上传大小：{}",fileUploadProperteis.getUploadUrl() + url,uploadFile.getSize());
+			System.out.println(fileUploadProperteis.getUploadUrl() + url + ",," + uploadFile.getSize());
+            	//封装到map中返回
 			Map<String,Object> result = new HashMap<String,Object>();
 			result.put("error", 0);
 			result.put("url", url);

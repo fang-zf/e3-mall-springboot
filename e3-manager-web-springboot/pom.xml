@@ -18,7 +18,7 @@
 		</dependency>
 		<!-- content interface -->
 		<dependency>
-			<groupId>com.e3mall.springboot.content</groupId>
+			<groupId>com.e3mall.springboot</groupId>
 			<artifactId>e3-content-interface-springboot</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
@@ -67,12 +67,16 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
+		</dependency>
+		<!-- activemq -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-activemq</artifactId>
 		</dependency>
 	</dependencies>
 
