@@ -22,7 +22,7 @@ import com.e3mall.springboot.utils.E3Result;
 public class ContentController {
 
 	//超时时间30s 重试3次
-	@Reference(timeout=1000*30,retries=3)
+	@Reference(timeout=1000*30,retries=3,loadbalance="roundRobin")
 	private ContentService contentService;
 	
 	/**

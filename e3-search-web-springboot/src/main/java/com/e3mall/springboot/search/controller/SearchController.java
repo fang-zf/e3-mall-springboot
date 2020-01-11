@@ -31,7 +31,7 @@ public class SearchController {
 	 * @date:  	2020年1月4日 下午4:36:40  
 	 * @throws
 	 */
-	@RequestMapping("/search")
+	@RequestMapping("/search.html")
 	public String search(String keyword,@RequestParam(defaultValue="1") int page,Model model) throws Exception{
 		//查询商品列表
 		SearchResult searchResult = searchService.search(keyword, page, SEARCH_RESULT_ROWS);

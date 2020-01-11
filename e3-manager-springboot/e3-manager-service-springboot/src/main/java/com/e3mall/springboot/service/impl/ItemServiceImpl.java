@@ -4,8 +4,12 @@ package com.e3mall.springboot.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +23,8 @@ import com.e3mall.springboot.pojo.TbItemExample;
 import com.e3mall.springboot.service.ItemService;
 import com.e3mall.springboot.utils.E3Result;
 import com.e3mall.springboot.utils.IDUtils;
+import com.e3mall.springboot.utils.JsonUtils;
+import com.e3mall.springboot.utils.RedisUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -33,6 +39,14 @@ public class ItemServiceImpl implements ItemService{
 	private TbItemDescMapper itemDescMapper;
 	@Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;
+	@Resource
+	private RedisUtils redisUtils;
+	
+	@Value("${REDIS_ITEM_PRE}")
+	private String REDIS_ITEM_PRE;
+	
+	@Value("${ITEM_CACHE_EXPIRE}")
+	private Integer ITEM_CACHE_EXPIRE;
 	
 	@Override
 	public TbItem getItemById(long itemId) {
@@ -88,6 +102,30 @@ public class ItemServiceImpl implements ItemService{
 		
 		//返回成功
 		return E3Result.ok();
+	}
+	
+	@Override
+	public TbItemDesc getItemDescById(long itemId) {
+		//查询缓存
+		try {
+			String json = (String) redisUtils.get(REDIS_ITEM_PRE + ":" + itemId + ":DESC");
+			if(StringUtils.isNoneBlank(json)){
+				TbItemDesc tbItemDesc = JsonUtils.jsonToPojo(json, TbItemDesc.class);
+				return tbItemDesc;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		TbItemDesc itemDesc = itemDescMapper.selectByPrimaryKey(itemId);
+		//添加缓存
+		try {
+			redisUtils.set(REDIS_ITEM_PRE + ":" + itemId + ":DESC", JsonUtils.objectToJson(itemDesc));
+			//设置过期时间
+			redisUtils.expire(REDIS_ITEM_PRE + ":" + itemId + ":DESC", ITEM_CACHE_EXPIRE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return itemDesc;
 	}
 
 }
