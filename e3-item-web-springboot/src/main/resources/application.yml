@@ -10,7 +10,17 @@ spring:
     template-loader-path: /WEB-INF/ftl/
     # 设置页面编码格式
     charset: UTF-8
-    
+  #activemq  
+  activemq: 
+    broker-url: tcp://192.168.0.118:61616 #activeMQ地址
+    user: admin
+    password: admin
+    in-memory: false #是否启用内存模式（也就是不安装MQ，项目启动时同时也启动一个MQ实例）
+    packages:
+      trust-all: true  #信任所有的包 如果直接发送对象消息，那么必须设置spring.activemq.packages.trust-all为true；另外如果你想开始消息持久化就必须spring.activemq.in-memory=false选项。
+  jms: 
+    pub-sub-domain: true #开启支持发布订阅模型，activemq默认只支持点对点
+      
 dubbo:
   application:
     name: e3-item-web #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
@@ -24,3 +34,6 @@ dubbo:
     timeout: 5000
     # 重连次数
     retries: 3
+
+#静态页面输出目录
+HTML_GEN_PATH: D:/temp/freemarker/item/
