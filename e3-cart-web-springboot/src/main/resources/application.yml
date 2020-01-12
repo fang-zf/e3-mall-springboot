@@ -1,0 +1,25 @@
+server:
+  port: 8090
+
+spring:
+  mvc: 
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+dubbo:
+  application:
+    name: e3-cart-web #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+  registry: 
+    protocol: zookeeper #指定注册中心的位置
+    address: 192.168.0.118:2181
+  consumer: 
+    # 关闭所有服务的启动时检查
+    check: false
+    # 超时时间
+    timeout: 5000
+    # 重连次数
+    retries: 3
+    
+#cookie保存在浏览器的时间--5天
+COOKIE_CART_EXPIRE: 432000
