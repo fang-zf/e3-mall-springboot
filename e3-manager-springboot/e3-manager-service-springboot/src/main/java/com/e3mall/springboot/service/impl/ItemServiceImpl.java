@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -96,8 +96,9 @@ public class ItemServiceImpl implements ItemService{
 		itemDescMapper.insert(itemDesc);
 		
 		//发送商品添加消息  
-		//在 com.e3mall.springboot.search.message中消费消息 ，添加到sorlr库中用于查询
-		ActiveMQQueue destination = new ActiveMQQueue("addItem");
+		//在 com.e3mall.springboot.search.message中消费消息 ，添加到sorlr库中
+		//在 com.e3mall.springboot.item.listener中消费消息，生成静态页面
+		ActiveMQTopic destination = new ActiveMQTopic("addItem");
         jmsMessagingTemplate.convertAndSend(destination, item.getId());
 		
 		//返回成功

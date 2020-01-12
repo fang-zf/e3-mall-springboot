@@ -29,27 +29,27 @@
 	};
 	</script>
 	
-	<script src="/js/jquery-1.5.1.min.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/jquery.alerts.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/common.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/cart.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/cloud-zoom.1.0.2.min.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/jquery.thickbox.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/goods.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/NewVersion.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/png.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/qiangGouPro.js?v=20160713" type="text/javascript"></script>
-	<script src="/js/jquery.cookie.js?v=20160713" type="text/javascript"></script>
-	<script src='/js/jquery.lazyload.js?v=20160713' type='text/javascript'></script>
+	<script src="../js/jquery-1.5.1.min.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/jquery.alerts.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/common.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/cart.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/cloud-zoom.1.0.2.min.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/jquery.thickbox.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/goods.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/NewVersion.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/png.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/qiangGouPro.js?v=20160713" type="text/javascript"></script>
+	<script src="../js/jquery.cookie.js?v=20160713" type="text/javascript"></script>
+	<script src='../js/jquery.lazyload.js?v=20160713' type='text/javascript'></script>
 	<script type="text/javascript" src="/js/jquery.qrcode.js?v=20160713"></script> 
 	<script type="text/javascript" src="/js/qrcode.js?v=20160713"></script>
 	<script type="text/javascript" src="/js/cookie.js?v=20160416222"></script>
 	<script type="text/javascript" src="/js/shadow.js?v=20160416"></script>
 	<script src="/js/product.js?v=20160713" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="/css/base_w1200.css?v=20160713">
-	<link rel="stylesheet" type="text/css" href="/css/product.css?v=20160713">
-	<link rel="stylesheet" type="text/css" href="/css/jquery.alerts.css?v=20160713" />
-	<link rel="stylesheet" type="text/css" href="/css/common.css?v=20160713" />
+	<link rel="stylesheet" type="text/css" href="../css/base_w1200.css?v=20160713">
+	<link rel="stylesheet" type="text/css" href="../css/product.css?v=20160713">
+	<link rel="stylesheet" type="text/css" href="../css/jquery.alerts.css?v=20160713" />
+	<link rel="stylesheet" type="text/css" href="../css/common.css?v=20160713" />
 </head>
 <body >
 <!-- header start -->
@@ -153,7 +153,7 @@
 		<div class="pView">
                                 <div id="pView">
                 <div id="zoom-jpg" class="jqzoom">
-                <img alt="" width="330" height="330" src="${item.images[0] }" jqimg="${item.images[0] }"/>
+                <img alt="" width="330" height="330" src="${item.images[0]! }" jqimg="${item.images[0] }"/>
                 </div>
                 <div id="pic-list">
                     <a href="javascript:void(0);" class="btn-control disabled" id="btn-forward"><b></b></a>
