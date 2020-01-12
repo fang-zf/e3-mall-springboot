@@ -186,6 +186,29 @@ public class RedisUtils {
     public Map<Object, Object> hmget(String key) {
         return redisTemplate.opsForHash().entries(key);
     }
+    
+    /**
+     * 获取hashKey对应的所有值
+     * @param:	@param key
+     * @param:	@return     
+     * @return:	Object  
+     * @throws
+     */
+    public Set<Object> hkeys(String key) {
+        return redisTemplate.opsForHash().keys(key);
+    }
+    
+    /**
+     * 获取hashKey对应的所有值
+     * @param:	@param key
+     * @param:	@return     
+     * @return:	Object  
+     * @throws
+     */
+    public List hvals(String key) {
+        return redisTemplate.opsForHash().values(key);
+    }
+    
 
     /**
      * HashSet
