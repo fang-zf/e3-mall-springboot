@@ -33,7 +33,7 @@ public class HtmlGenController {
 		//加载模板对象
 		Template template = configuration.getTemplate("hello.ftl");
 		//创建一个数据集
-		Map data = new HashMap<>();
+		Map<String, Object> data = new HashMap<>();
 		data.put("hello", 123456);
 		//指定文件输出的路径及文件名
 		Writer out = new FileWriter(new File("D:/temp/freemarker/hello.html"));
