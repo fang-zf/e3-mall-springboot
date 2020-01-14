@@ -1,6 +1,6 @@
 package com.e3mall.springboot.controller;
 
-import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Controller;
@@ -21,8 +21,8 @@ public class ItemController {
 	//超时时间30s 重试3次
 	@Reference(timeout=1000*30,retries=3)
 	private ItemService itemService;
-	//@Autowired
-    //private JmsMessagingTemplate jmsMessagingTemplate;
+	@Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
 	
 	@RequestMapping("/item/{itemId}")
 	@ResponseBody
@@ -51,9 +51,14 @@ public class ItemController {
 	@ResponseBody
 	public E3Result addItem(TbItem item, String desc) {
 		E3Result result = itemService.addItem(item, desc);
-		//发送商品添加消息  这里拿不到itemId TODO
-		//ActiveMQQueue destination = new ActiveMQQueue("Queue-my");
-        //jmsMessagingTemplate.convertAndSend(destination, "123");
+		//发送商品添加消息  
+		//在 com.e3mall.springboot.search.message中消费消息 ，添加到sorlr库中
+		//在 com.e3mall.springboot.item.listener中消费消息，生成静态页面
+		if(result.getStatus() == 200){
+			TbItem data = (TbItem) result.getData();
+			ActiveMQTopic destination = new ActiveMQTopic("addItem");
+			jmsMessagingTemplate.convertAndSend(destination, data.getId());
+		}
 		return result;
 	}
 	
