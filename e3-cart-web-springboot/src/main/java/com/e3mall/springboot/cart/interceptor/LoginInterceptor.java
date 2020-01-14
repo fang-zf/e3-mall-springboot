@@ -1,13 +1,9 @@
 package com.e3mall.springboot.cart.interceptor;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,7 +18,6 @@ import com.e3mall.springboot.utils.E3Result;
  * @author fangzf
  * @date:  2019年6月29日
  */
-@Component
 public class LoginInterceptor implements HandlerInterceptor{
 	
 	@Reference
@@ -66,6 +61,4 @@ public class LoginInterceptor implements HandlerInterceptor{
 		//可以再此处理异常
 		
 	}
-
-	
 }
