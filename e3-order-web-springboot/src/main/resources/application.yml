@@ -1,0 +1,25 @@
+server:
+  port: 8092
+
+spring:
+  mvc: 
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+dubbo:
+  application:
+    name: e3-order-web #指定当前服务/应用的名字（同样的服务名字相同，不要和别的服务同名）
+  registry: 
+    protocol: zookeeper #指定注册中心的位置
+    address: 192.168.0.118:2181
+  consumer: 
+    # 关闭所有服务的启动时检查
+    check: false
+    # 超时时间
+    timeout: 5000
+    # 重连次数
+    retries: 3
+    
+#单点登录系统sso登录地址
+SSO_URL: http://localhost:8088
