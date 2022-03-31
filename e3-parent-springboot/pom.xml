@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<springboot.version>2.1.2.RELEASE</springboot.version>
+		<springboot.version>2.5.12</springboot.version>
 		<spring.jms.version>5.1.4.RELEASE</spring.jms.version>
 		<tk.mybatis.version>2.1.5</tk.mybatis.version>
 		<tk.mybatis.mapper.version>4.1.5</tk.mybatis.mapper.version>
