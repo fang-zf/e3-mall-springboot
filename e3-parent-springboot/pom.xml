@@ -40,7 +40,7 @@
 		<jasper.version>9.0.27</jasper.version>
 		<fastdfs_client.version>1.25</fastdfs_client.version>
 		<fastdfs-client.version>1.26.2</fastdfs-client.version>
-		<alibaba.fastjson>1.2.49</alibaba.fastjson>
+		<alibaba.fastjson>1.2.83</alibaba.fastjson>
 		<solrj.version>4.10.3</solrj.version>
 		<!-- <joda-time.version>2.5</joda-time.version> -->
 	</properties>
