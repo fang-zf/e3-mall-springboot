@@ -34,7 +34,7 @@
 		<dubbo.spring.version>0.2.0</dubbo.spring.version>
 		<lombok.version>1.18.4</lombok.version>
 		<commons.lang3.version>3.3.2</commons.lang3.version>
-		<commons-net.version>3.3</commons-net.version>
+		<commons-net.version>3.9.0</commons-net.version>
 		<httpclient.version>4.3.5</httpclient.version>
 		<jedis.version>2.9.0</jedis.version>
 		<jasper.version>9.0.27</jasper.version>
